@@ -1,43 +1,65 @@
-#include <Time.h>
+#include <Wire.h>
+#include "RTClib.h"
 
 int pinElectrovalvula = 7;
-time_t t;
+char daysOfTheWeek[7][12] = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+
+
+// RTC_DS1307 rtc;
+RTC_DS3231 rtc;
 
 void setup() {
   // put your setup code here, to run once:
 
   Serial.begin(9600);
-  setTime(11,07,00,24,8,2017);
+  delay(1000);
   pinMode(pinElectrovalvula,OUTPUT);
 
+ 
+   if (!rtc.begin()) {
+      Serial.println(F("Couldn't find RTC"));
+      while (1);
+   }
+ 
+   if (rtc.lostPower()) {
+      rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+   }
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  t = now();
+  DateTime now = rtc.now();
   reloj();
   
-  // 
-  if (hour(t)==19 && minute(t)==0) {
+  // ---------------------------------
+  if (now.hour()==17 && now.minute()==0) {
     digitalWrite(pinElectrovalvula,0);//0 ==> Regando
     Serial.print("Regando...");
-    delay(1200000);
+    delay(600000);
   }else{
     digitalWrite(pinElectrovalvula,1);//1 ==> No Regando
     }
-  //
+  //----------------------------------
   
 }
 
 
 void reloj(){
-  t = now();
-  Serial.print(hour(t));
-  Serial.print(":");
-  Serial.print(minute(t));
-  Serial.print(":");
-  Serial.print(second(t));
-  Serial.print("");
+  DateTime now = rtc.now();
+    Serial.print(now.year(), DEC);
+    Serial.print('/');
+    Serial.print(now.month(), DEC);
+    Serial.print('/');
+    Serial.print(now.day(), DEC);
+    Serial.print(" (");
+    Serial.print(daysOfTheWeek[now.dayOfTheWeek()]);
+    Serial.print(") ");
+    Serial.print(now.hour(), DEC);
+    Serial.print(':');
+    Serial.print(now.minute(), DEC);
+    Serial.print(':');
+    Serial.print(now.second(), DEC);
+    
   Serial.print("==>> No regando...");
   Serial.println();
   delay(1000);
