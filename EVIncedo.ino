@@ -32,10 +32,10 @@ void loop() {
   reloj();
   
   // ---------------------------------
-  if (now.hour()==17 && now.minute()==0) {
+  if ((now.hour()==10 && now.minute()==0) || (now.hour()==18 && now.minute()==0)) {
     digitalWrite(pinElectrovalvula,0);//0 ==> Regando
     Serial.print("Regando...");
-    delay(600000);
+    delay(900000);
   }else{
     digitalWrite(pinElectrovalvula,1);//1 ==> No Regando
     }
