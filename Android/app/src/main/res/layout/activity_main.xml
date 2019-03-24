@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/fondo">
+
+    <EditText
+        android:id="@+id/HoraInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Hora de inicio"
+        android:inputType="time"
+        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/colorAccent"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="216dp" />
+
+    <TextView
+        android:id="@+id/EVIncedo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="EVIncedo"
+        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/colorAccent"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="62dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Duración"
+        android:inputType="number"
+        android:textColorHint="@color/colorAccent"
+        android:textColor="@color/colorAccent"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <Button
+        android:id="@+id/establecer"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Establecer"
+        android:textColor="@color/negro"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <Button
+        android:id="@+id/Regar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regar"
+        android:textColor="@color/negro"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <Button
+        android:id="@+id/Parar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parar"
+        android:textColor="@color/negro"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="474dp" />
+
+    <Button
+        android:id="@+id/Sostener"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sostener"
+        android:textColor="@color/negro"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="596dp" />
+</android.support.constraint.ConstraintLayout>
